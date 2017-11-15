@@ -1,55 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <script src="https://d3js.org/d3.v3.min.js"></script>
+<meta charset="utf-8">
+<style> /* set the CSS */
 
-  <style type="text/css">
-    path:hover {
-      fill-opacity: 0.5;
-    }
+body { font: 12px Arial;}
 
-    div.tooltip {
-      position: absolute;           
-      text-align: center;
-      padding: 0 10px;             
-      font: 12px sans-serif;        
-      background: white;   
-      border: 0px;      
-      border-radius: 8px;           
-      pointer-events: none;         
-    }
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
 
-    body {
-      font: 12px Arial;
-    }
-    path {
-      stroke: red;
-      stroke-width: 2;
-      fill: none;
-    }
-    .axis path,
-    .axis line {
-      fill: none;
-      stroke: grey;
-      stroke-width: 1;
-      shape-rendering: crispEdges;
-    }
-  </style>
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
 
-</head>
+div.tooltip {
+  position: absolute;           
+  text-align: center;
+  padding: 0 10px;             
+  font: 12px sans-serif;        
+  background: white;   
+  border: 0px;      
+  border-radius: 8px;           
+  pointer-events: none;         
+}
+
+</style>
 <body>
-<div>
-  <div id="maps" class="clearfix"></div>
-  <div class="gradient-bottom"></div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+<!-- load the d3.js library -->    
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="../../lodash.min.js"></script>
+
 <script>
-  var paisescsv = "64.csv";
+  var timelinecsv = "timeline.csv";
 </script>
 
-<script src="../../paises.js"></script>
+<script src="../../timeline.js"></script>
 </body>
-</html>
-
