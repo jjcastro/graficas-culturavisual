@@ -51,7 +51,10 @@ var svg = d3.select("body")
 // Get the data
 d3.csv(timelinecsv, function(error, data) {
 
-    const result = [...new Set(data.map(item => item.categoria))];
+    const categories = [...new Set(data.map(item => item.categoria))];
+    const result = categories.filter(function(d){
+            return d != "";
+        }); 
 
     data.forEach(function(d) {
         d.anio = parseDate(d.anio);
@@ -61,6 +64,33 @@ d3.csv(timelinecsv, function(error, data) {
     // Scale the range of the data
     x.domain(d3.extent(data, function(d) { return d.anio; }));
     y.domain([0, d3.max(data, function(d) { return d.conteo; })]);
+
+    var legendRectSize = 10;                                  
+    var legendSpacing = 10; 
+
+    
+
+    var legend = svg.selectAll('.legend')                     
+          .data(result)                                   
+          .enter()                                                
+          .append('g')                                            
+          .attr('class', 'legend')
+          .attr('transform', function(d, i) {
+            var height = legendRectSize + legendSpacing;
+            var horz = 10;
+            var vert = i * height;
+            return 'translate(' + horz + ',' + vert + ')';
+          });                                            
+
+        legend.append('circle')                                     
+          .attr('r', legendRectSize/2)                          
+          .attr('cx', 5)                         
+          .style('fill', function(d) { return colors(d); });                                
+          
+        legend.append('text')                                     
+          .attr('x', legendRectSize + legendSpacing)              
+          .attr('y', (legendRectSize - legendSpacing) + legendRectSize/2)
+          .text(function(d) { return d; });
 
 
 
@@ -79,6 +109,9 @@ d3.csv(timelinecsv, function(error, data) {
         // });
 
         // // Add the valueline path.
+
+
+
         svg.append("path")
             .attr("class", "line")
             .style("stroke", colors(categoria))
