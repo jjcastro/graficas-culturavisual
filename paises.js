@@ -45,7 +45,7 @@ var svg2 = d3.select("div#maps")
 d3.csv("total.csv", function(datatotal) { 
   d3.csv(paisescsv, function(data) { 
 
-    d3.json("../../map.geojson", function(json) {
+    d3.json(typeof mapgeojson != 'undefined' ? mapgeojson : "../../map.geojson", function(json) {
 
       var max = -1;
 
