@@ -1,4 +1,33 @@
 
+var nombres = {};
+nombres["United States"] = "Estados Unidos";
+nombres["Argentina"] = "Argentina";
+nombres["Bolivia"] = "Bolivia";
+nombres["Brazil"] = "Brasil";
+nombres["Chile"] = "Chile";
+nombres["Colombia"] = "Colombia";
+nombres["Costa Rica"] = "Costa Rica";
+nombres["Cuba"] = "Cuba";
+nombres["Dominican Rep."] = "Rep. Dominicana";
+nombres["Ecuador"] = "Ecuador";
+nombres["Guatemala"] = "Guatemala";
+nombres["Haiti"] = "Haiti";
+nombres["Honduras"] = "Honduras";
+nombres["Italy"] = "Italia";
+nombres["Mexico"] = "México";
+nombres["Nicaragua"] = "Nicaragua";
+nombres["Panama"] = "Panamá";
+nombres["Paraguay"] = "Paraguay";
+nombres["Uruguay"] = "Uruguay";
+nombres["Peru"] = "Perú";
+nombres["Puerto Rico"] = "Puerto Rico";
+nombres["Spain"] = "España";
+nombres["United Kingdom"] = "Reino Unido";
+nombres["Venezuela"] = "Venezuela";
+nombres["Suriname"] = "Surinam";
+nombres["French Guiana"] = "Guyana Francesa";
+nombres["Guiana"] = "Guyana";
+
 // d3.js
 // ==========================
 var width = 600;
@@ -124,9 +153,15 @@ d3.csv("total.csv", function(datatotal) {
           .style("opacity", .9);   
 
         div.select("h3")
-          .text(d.properties.sovereignt);
-        div.select("p")
-          .text(d.properties.conteo);
+          .text(nombres[d.properties.sovereignt]);
+
+        if (!isNaN(d.properties.conteo)) {
+          div.select("p")
+            .text(d.properties.conteo);
+        } else {
+          div.select("p")
+            .text("");
+        }
         div
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY - 28) + "px");
@@ -173,7 +208,7 @@ d3.csv("total.csv", function(datatotal) {
         .attr("fill", "white");
 
       var bubbledata = json.features.map(function(d){
-        d.pais = d.properties.sovereignt;
+        d.pais = nombres[d.properties.sovereignt];
         d.value = d.properties.conteo;
         return d;
       }).filter(function(d) {
@@ -227,7 +262,7 @@ d3.csv("total.csv", function(datatotal) {
           return d.y + 7;
         })
         .text( function (d) {
-          return d.properties.sovereignt;
+          return nombres[d.properties.sovereignt];
         })
         .attr("text-anchor", "middle")
         .attr("font-family", "sans-serif")
