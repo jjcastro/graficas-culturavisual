@@ -2,10 +2,10 @@
 // d3.js
 // ==========================
 var width = 600;
-var height = 700;
+var height = 750;
 
 var projection = d3.geo.mercator()
-  .translate( [750, 250])
+  .translate( [780, 300])
   .scale([350]);
 var path = d3.geo.path().projection(projection);
 
@@ -15,7 +15,8 @@ var color = d3.scale.linear()
 var svg = d3.select("div#maps")
   .append("svg")
   .attr("width", width)
-  .attr("height", height);
+  .attr("height", height)
+  .append("g");
 
 // Tooltip
 var div = d3.select("body")
@@ -94,17 +95,18 @@ d3.csv("total.csv", function(datatotal) {
       }
 
       color.domain([0, max]);
-          
+           
       svg.selectAll("path")
         .append("div")
         .data(json.features)
         .enter()
         .append("path")
+        .attr("id", function(d) { return d.properties.postal; })
         .attr("d", path)
         .style("stroke", "#fff")
         .style("stroke-width", "1.5")
         .style("fill", function(d) {
-
+          console.log(d);
         var value = d.properties.conteo;
         console.log("a");
 
@@ -134,7 +136,41 @@ d3.csv("total.csv", function(datatotal) {
         div.transition()
           .duration(500)
           .style("opacity", 0);   
-      }); 
+      });
+
+      var text = svg.selectAll("text")
+        .data(json.features)
+        .enter()
+        .append("text");
+
+      var textLabels = text
+        .attr("x", function(d) { 
+          if (d.properties.postal == "US")
+            return 170;
+          else 
+            return path.centroid(d)[0];
+        })
+        .attr("y", function(d) { 
+          if (d.properties.postal == "US")
+            return 60;
+          else 
+            return path.centroid(d)[1];
+        })
+        .text( function (d) {
+          if (!isNaN(d.properties.conteo))
+            return d.properties.conteo;
+          else
+            return "";
+        })
+        .attr("text-anchor", function (d) {
+          if (d.properties.postal == "PE" || d.properties.postal == "PY" || d.properties.postal == "CL")
+            return "end"; 
+          else
+            return "middle";
+        })
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "10px")
+        .attr("fill", "white");
 
       var bubbledata = json.features.map(function(d){
         d.pais = d.properties.sovereignt;
@@ -177,6 +213,26 @@ d3.csv("total.csv", function(datatotal) {
           .duration(500)
           .style("opacity", 0);   
       }); 
+
+      var text2 = svg2.selectAll("text")
+        .data(nodes)
+        .enter()
+        .append("text");
+
+      var textLabels2 = text2
+        .attr("x", function(d) { 
+          return d.x;
+        })
+        .attr("y", function(d) { 
+          return d.y + 7;
+        })
+        .text( function (d) {
+          return d.properties.sovereignt;
+        })
+        .attr("text-anchor", "middle")
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "14px")
+        .attr("fill", "white");
     });
   });
 });
