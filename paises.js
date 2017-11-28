@@ -43,8 +43,8 @@ var color = d3.scale.linear()
 
 var svg = d3.select("div#maps")
   .append("svg")
-  .attr("width", width)
-  .attr("height", height)
+   .attr("preserveAspectRatio", "xMinYMin meet")
+   .attr("viewBox", "0 0 600 800")
   .append("g");
 
 // Tooltip
@@ -68,8 +68,8 @@ var bubble = d3.layout.pack()
 
 var svg2 = d3.select("div#maps")
     .append("svg")
-    .attr("width", diameter)
-    .attr("height", diameter)
+    .attr("preserveAspectRatio", "xMinYMin meet")
+   .attr("viewBox", "0 0 600 800")
     .attr("class", "bubble");
 
 d3.csv("total.csv", function(datatotal) { 
