@@ -193,7 +193,7 @@ d3.csv("total.csv", function(datatotal) {
         })
         .text( function (d) {
           if (!isNaN(d.properties.conteo))
-            return d.properties.conteo;
+            return d.properties.conteo + "%";
           else
             return "";
         })
