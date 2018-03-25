@@ -1,1 +1,136 @@
-var _0x1a02=['duration','opacity','text','pageX','event','pageY','transition','csv','bars.csv','category20','right','scale','ordinal','rangeBands','linear','axis','orient','left','svg','top','select','body','width','attr','height','append','transform','translate(','forEach','obras','domain','map','tema','class','x\x20axis','call','y\x20axis','style','fill','steelblue','data','enter','rect','rangeBand','mouseover'];(function(_0x570914,_0x1c8dc8){var _0x8cf5ad=function(_0x7db4b7){while(--_0x7db4b7){_0x570914['push'](_0x570914['shift']());}};_0x8cf5ad(++_0x1c8dc8);}(_0x1a02,0x19c));var _0x2492=function(_0x52faae,_0x5d541a){_0x52faae=_0x52faae-0x0;var _0x2d2bfb=_0x1a02[_0x52faae];return _0x2d2bfb;};d3[_0x2492('0x0')](_0x2492('0x1'),function(_0x991246){var _0x981158=d3['scale'][_0x2492('0x2')]();var _0x441e3a={'top':0x1e,'right':0x28,'bottom':0x1e,'left':0xc8},_0x2cc193=0x1f4-_0x441e3a['left']-_0x441e3a[_0x2492('0x3')],_0x5f41ea=0x384-_0x441e3a['top']-_0x441e3a['bottom'];var _0x39753a=d3[_0x2492('0x4')][_0x2492('0x5')]()[_0x2492('0x6')]([0x0,_0x2cc193],0.5);var _0xfeb75b=d3[_0x2492('0x4')][_0x2492('0x7')]()['range']([0x0,_0x5f41ea]);var _0x527cdd=d3['svg'][_0x2492('0x8')]()[_0x2492('0x4')](_0x39753a)[_0x2492('0x9')](_0x2492('0xa'));var _0x32d742=d3[_0x2492('0xb')]['axis']()[_0x2492('0x4')](_0xfeb75b)[_0x2492('0x9')](_0x2492('0xc'));var _0x281129=d3[_0x2492('0xd')](_0x2492('0xe'))['append'](_0x2492('0xb'))['attr'](_0x2492('0xf'),_0x5f41ea+_0x441e3a['left']+_0x441e3a[_0x2492('0x3')])[_0x2492('0x10')](_0x2492('0x11'),_0x2cc193+_0x441e3a[_0x2492('0xc')]+_0x441e3a['bottom'])[_0x2492('0x12')]('g')[_0x2492('0x10')](_0x2492('0x13'),_0x2492('0x14')+_0x441e3a[_0x2492('0xa')]+','+_0x441e3a[_0x2492('0xc')]+')');_0x991246[_0x2492('0x15')](function(_0x20559e){_0x20559e[_0x2492('0x16')]=+_0x20559e[_0x2492('0x16')];});_0x39753a[_0x2492('0x17')](_0x991246[_0x2492('0x18')](function(_0x4bb1e3){return _0x4bb1e3[_0x2492('0x19')];}));_0xfeb75b[_0x2492('0x17')]([0x0,d3['max'](_0x991246,function(_0x20f109){return _0x20f109['obras'];})]);_0x281129['append']('g')[_0x2492('0x10')](_0x2492('0x1a'),_0x2492('0x1b'))[_0x2492('0x1c')](_0x527cdd);_0x281129[_0x2492('0x12')]('g')[_0x2492('0x10')](_0x2492('0x1a'),_0x2492('0x1d'))[_0x2492('0x1e')](_0x2492('0x1f'),_0x2492('0x20'))[_0x2492('0x1c')](_0x32d742);_0x281129['selectAll']('bar')[_0x2492('0x21')](_0x991246)[_0x2492('0x22')]()[_0x2492('0x12')](_0x2492('0x23'))['style'](_0x2492('0x1f'),function(_0x479bc4){return _0x981158(_0x479bc4[_0x2492('0x16')]);})['attr']('x',function(_0x1dc186){return 0x0;})[_0x2492('0x10')](_0x2492('0xf'),function(_0x14433c){return _0xfeb75b(_0x14433c[_0x2492('0x16')]);})[_0x2492('0x10')]('y',function(_0x11c3b6){return _0x39753a(_0x11c3b6[_0x2492('0x19')]);})['attr'](_0x2492('0x11'),_0x39753a[_0x2492('0x24')]())['on'](_0x2492('0x25'),function(_0x2ec755){div['transition']()[_0x2492('0x26')](0xc8)[_0x2492('0x1e')](_0x2492('0x27'),0.9);div[_0x2492('0xd')]('h3')[_0x2492('0x28')](_0x2ec755[_0x2492('0x16')]);div[_0x2492('0xd')]('p')[_0x2492('0x28')](_0x2ec755[_0x2492('0x19')]);div['style'](_0x2492('0xa'),d3['event'][_0x2492('0x29')]+'px')[_0x2492('0x1e')](_0x2492('0xc'),d3[_0x2492('0x2a')][_0x2492('0x2b')]-0x1c+'px');})['on']('mouseout',function(_0x66c1d2){div[_0x2492('0x2c')]()[_0x2492('0x26')](0x1f4)[_0x2492('0x1e')](_0x2492('0x27'),0x0);});});
+
+d3.csv("bars.csv", function(data) { 
+    // ====================
+
+  var colors = d3.scale.category20();
+
+  var extramargin = 0;
+  var maxWidth = -1;
+  var maxWidthSuper = -1;
+
+  d3.select("body")
+    .append("svg")
+    .append('g')
+    .selectAll('.dummyText')
+    .data(data)
+    .enter()
+    .append("text")
+    .text(function(d) { return d["tema"]})
+    .each(function(d,i) {
+        var width = this.getComputedTextLength();
+        if (width > maxWidth) {
+          maxWidth = width;
+        }
+    })
+    .text(function(d) { return d["supertema"]})
+    .each(function(d,i) {
+        var width = this.getComputedTextLength();
+        if (width > maxWidthSuper) {
+          maxWidthSuper = width;
+        }
+    })
+
+    extramargin = maxWidthSuper + maxWidth;
+
+    d3.selectAll("svg").remove();
+
+  var margin = { top: 30, right: 40, bottom: 30, left: 50 + extramargin },
+  width = 900 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
+
+  var x = d3.scale.ordinal().rangeBands([0, height], .5); // <-- to change the width of the columns, change the .09 at the end to whatever
+  var y = d3.scale.linear().range([0, width]);
+
+  var xAxis = d3.svg.axis().scale(x)
+    .orient("left").tickSize(0);
+
+  var div = d3.select("body")
+  .append("div")   
+  .attr("class", "tooltip")               
+  .style("opacity", 0);
+
+    // Tooltip
+  d3.select("div.tooltip")
+    .append("h3");
+  d3.select("div.tooltip")
+    .append("p");
+
+  var yAxisLeft = d3.svg.axis().scale(y)
+    .orient("top");
+
+  var svg3 = d3.select("body")
+    .append("svg")
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 " + (width + margin.left + margin.right)+ " " + (height + margin.top + margin.bottom))
+    .append("g")
+    .attr("transform",
+      "translate(" + margin.left + "," + margin.top + ")");
+
+  // Get the data
+  data.forEach(function (d) {
+    d["obras"] = +d["obras"];
+  });
+
+  // Scale the range of the data
+  x.domain(data.map(function (d) { return d["supertema"] + d["tema"]; }));
+  y.domain([0, d3.max(data, function (d) { return d["obras"]; })]);
+
+  svg3.append("g")
+      .attr("class", "x axis")
+      // .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  // // Add the Y Axis
+  svg3.selectAll("g.x")
+      .selectAll('text')
+      .style('text-anchor', 'start')
+      .attr("x", -1 * (maxWidth + 10))
+      .text(function(d,i) { return data[i]["tema"]});
+      
+  var currentST = "";
+  svg3.selectAll("g.x")
+      .selectAll('g.tick')
+      .append('text')
+      .attr("x", -1 * (maxWidth + maxWidthSuper + 30))
+      .attr("y", ".32em")
+      .text(function(d,i) {
+        var tema = data[i]["supertema"];
+        if(tema !== currentST) {
+          currentST = tema;
+          return tema;
+        } else {
+          return "";
+        }
+      });
+
+  // Draw the bars
+  svg3.selectAll("bar")
+      .data(data)
+      .enter()
+      .append("rect")
+      .style("fill", function (d) { return colors(d["obras"]) } )
+      .attr("x", function (d) { return 0; })
+      .attr("width", function (d) { return y(d["obras"]); } )
+      .attr("y", function (d) { return x(d["supertema"] + d["tema"]); })
+      .attr("height", x.rangeBand() )
+
+  .on("mouseover", function(d) {      
+        div.transition()        
+          .duration(200)      
+          .style("opacity", .9);   
+
+        div.select("h3")
+          .text(d["obras"]);
+        div.select("p")
+          .text(d["tema"]);
+        div
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY - 28) + "px");
+      })
+  .on("mouseout", function(d) {       
+        div.transition()
+          .duration(500)
+          .style("opacity", 0);   
+      }); 
+
+  });
