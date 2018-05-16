@@ -8,6 +8,7 @@ d3.csv("bars.csv", function(data) {
   var maxWidth = -1;
   var maxWidthSuper = -1;
 
+  // text width calculations
   d3.select("body")
     .append("svg")
     .append('g')
@@ -30,9 +31,9 @@ d3.csv("bars.csv", function(data) {
         }
     })
 
-    extramargin = maxWidthSuper + maxWidth;
+  extramargin = maxWidthSuper + maxWidth;
 
-    d3.selectAll("svg").remove();
+  d3.selectAll("svg").remove();
 
   var margin = { top: 30, right: 40, bottom: 30, left: 50 + extramargin },
   width = 900 - margin.left - margin.right,
@@ -133,4 +134,37 @@ d3.csv("bars.csv", function(data) {
           .style("opacity", 0);   
       }); 
 
-  });
+  var text2 = svg3.selectAll("omg")
+      .data(data)
+      .enter()
+      .append("text");
+
+  var textLabels2 = text2
+    .text( function (d) {
+      return d.obras;
+    })
+    .attr("text-anchor", "middle")
+    .attr("font-family", "sans-serif")
+    .attr("font-size", "14px")
+    .attr("fill", "white")
+    .attr("x", function (d) { return y(d["obras"]) - 20; } )
+    .attr("y", function (d) {
+      return x(d["supertema"] + d["tema"]) + (x.rangeBand()/2) + 5;
+    });
+
+
+
+
+    //   .style("fill", function (d) { return colors(d["obras"]) } )
+    //   .attr("x", function (d) { return 0; })
+    //   .attr("width", function (d) { return y(d["obras"]); } )
+    //   .attr("y", function (d) { return x(d["supertema"] + d["tema"]); })
+    //   .attr("height", x.rangeBand() )
+
+    // .selectAll("rect")
+    // .append("text")
+    // .text(function(d,i) { return d.obras });
+
+});
+
+

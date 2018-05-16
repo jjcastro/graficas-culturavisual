@@ -39,7 +39,7 @@ var projection = d3.geo.mercator()
 var path = d3.geo.path().projection(projection);
 
 var color = d3.scale.linear()
-  .range(["#CBB5A0", "#C82528"]); 
+  .range(["#888888", "#C82528"]); 
 
 var svg = d3.select("div#maps")
   .append("svg")
@@ -207,7 +207,7 @@ var svg2 = d3.select("div#maps")
           else
             return "middle";
         })
-        .attr("font-family", "sans-serif")
+        .attr("font-family", "Lora")
         .attr("font-size", "10px")
         .attr("fill", "white");
 
@@ -269,9 +269,15 @@ var svg2 = d3.select("div#maps")
           return nombres[d.properties.sovereignt];
         })
         .attr("text-anchor", "middle")
-        .attr("font-family", "sans-serif")
+        // .attr("font-family", "sans-serif")
         .attr("font-size", "14px")
-        .attr("fill", "white");
+        .attr("fill", "white")
+        .attr("display", function(d) {
+          if (d.r + 20 > this.getComputedTextLength())
+            return "block";
+          else
+            return "none";
+        });
     });
   });
 // });

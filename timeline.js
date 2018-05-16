@@ -1,1 +1,192 @@
-var _0x4ce7=['axis','orient','ticks','line','conteo','preserveAspectRatio','xMinYMin\x20meet','viewBox','0\x200\x20900\x20400','transform','translate(','map','filter','domain','extent','max','.legend','data','legend','circle','fill','text','forEach','stroke','x\x20axis','translate(0,','call','selectAll','dot','enter','mouseover','transition','duration','h3.categoria','Categoria:\x20','h3.anio','Año:\x20','getFullYear','Obras:\x20','event','pageX','pageY','mouseout','y\x20axis','scale','category20','left','right','top','bottom','time','format','parse','select','body','append','div','attr','class','tooltip','style','opacity','categoria','anio','range','log','svg'];(function(_0x438fb2,_0x5eab37){var _0x1ecb73=function(_0x267382){while(--_0x267382){_0x438fb2['push'](_0x438fb2['shift']());}};_0x1ecb73(++_0x5eab37);}(_0x4ce7,0x17b));var _0x2632=function(_0x3c5ac2,_0x34dbd9){_0x3c5ac2=_0x3c5ac2-0x0;var _0x3f4be8=_0x4ce7[_0x3c5ac2];return _0x3f4be8;};var colors=d3[_0x2632('0x0')][_0x2632('0x1')]();var margin={'top':0x1e,'right':0x14,'bottom':0x1e,'left':0x32},width=0x384-margin[_0x2632('0x2')]-margin[_0x2632('0x3')],height=0x10e-margin[_0x2632('0x4')]-margin[_0x2632('0x5')];var parseDate=d3[_0x2632('0x6')][_0x2632('0x7')]('%Y')[_0x2632('0x8')];var div=d3[_0x2632('0x9')](_0x2632('0xa'))[_0x2632('0xb')](_0x2632('0xc'))[_0x2632('0xd')](_0x2632('0xe'),_0x2632('0xf'))[_0x2632('0x10')](_0x2632('0x11'),0x0);div[_0x2632('0xb')]('h3')[_0x2632('0xd')](_0x2632('0xe'),_0x2632('0x12'));div[_0x2632('0xb')]('h3')[_0x2632('0xd')](_0x2632('0xe'),_0x2632('0x13'));div[_0x2632('0xb')]('p');var x=d3[_0x2632('0x6')][_0x2632('0x0')]()[_0x2632('0x14')]([0x0,width]);var y=d3[_0x2632('0x0')]['linear']()[_0x2632('0x14')]([height,0x0]);console[_0x2632('0x15')](x[_0x2632('0x14')]());var xAxis=d3[_0x2632('0x16')][_0x2632('0x17')]()[_0x2632('0x0')](x)[_0x2632('0x18')](_0x2632('0x5'))[_0x2632('0x19')](0x5);var yAxis=d3[_0x2632('0x16')][_0x2632('0x17')]()[_0x2632('0x0')](y)[_0x2632('0x18')](_0x2632('0x2'))[_0x2632('0x19')](0x5);var valueline=d3[_0x2632('0x16')][_0x2632('0x1a')]()['x'](function(_0x1735ba){return x(_0x1735ba[_0x2632('0x13')]);})['y'](function(_0x9e2c46){return y(_0x9e2c46[_0x2632('0x1b')]);});var svg=d3[_0x2632('0x9')](_0x2632('0xa'))[_0x2632('0xb')](_0x2632('0x16'))[_0x2632('0xd')](_0x2632('0x1c'),_0x2632('0x1d'))[_0x2632('0xd')](_0x2632('0x1e'),_0x2632('0x1f'))['append']('g')[_0x2632('0xd')](_0x2632('0x20'),_0x2632('0x21')+margin[_0x2632('0x2')]+','+margin[_0x2632('0x4')]+')');d3['csv'](timelinecsv,function(_0x296a9d,_0x4e1242){const _0xccd1c5=[...new Set(_0x4e1242[_0x2632('0x22')](_0x3c43d8=>_0x3c43d8[_0x2632('0x12')]))];const _0x5b86fe=_0xccd1c5[_0x2632('0x23')](function(_0x2dcdb7){return _0x2dcdb7!='';});_0x4e1242['forEach'](function(_0x55dbe1){_0x55dbe1[_0x2632('0x13')]=parseDate(_0x55dbe1[_0x2632('0x13')]);_0x55dbe1[_0x2632('0x1b')]=+_0x55dbe1['conteo'];});x[_0x2632('0x24')](d3[_0x2632('0x25')](_0x4e1242,function(_0x2533c2){return _0x2533c2['anio'];}));y[_0x2632('0x24')]([0x0,d3[_0x2632('0x26')](_0x4e1242,function(_0x449c33){return _0x449c33[_0x2632('0x1b')];})]);var _0x14eed5=0xa;var _0x257af5=0xa;var _0x4fc7bd=svg['selectAll'](_0x2632('0x27'))[_0x2632('0x28')](_0x5b86fe)['enter']()[_0x2632('0xb')]('g')[_0x2632('0xd')](_0x2632('0xe'),_0x2632('0x29'))[_0x2632('0xd')](_0x2632('0x20'),function(_0x190996,_0x429f06){var _0x2f32df=_0x14eed5+_0x257af5;var _0x5406bb=0xa;var _0x2f25cd=_0x429f06*_0x2f32df;return _0x2632('0x21')+_0x5406bb+','+_0x2f25cd+')';});_0x4fc7bd[_0x2632('0xb')](_0x2632('0x2a'))[_0x2632('0xd')]('r',_0x14eed5/0x2)[_0x2632('0xd')]('cx',0x5)[_0x2632('0x10')](_0x2632('0x2b'),function(_0x106bc3){return colors(_0x106bc3);});_0x4fc7bd[_0x2632('0xb')]('text')[_0x2632('0xd')]('x',_0x14eed5+_0x257af5)[_0x2632('0xd')]('y',_0x14eed5-_0x257af5+_0x14eed5/0x2)[_0x2632('0x2c')](function(_0x3264d5){return _0x3264d5;});_0x5b86fe[_0x2632('0x2d')](function(_0x231fc4){var _0x5b9662=_0x4e1242[_0x2632('0x23')](function(_0x5f1441){return _0x5f1441['categoria']==_0x231fc4;});var _0x46d1af=_0x5b9662[_0x2632('0x23')](function(_0x18fc19){return _0x18fc19[_0x2632('0x1b')]!=0x0;});svg[_0x2632('0xb')]('path')['attr'](_0x2632('0xe'),'line')[_0x2632('0x10')](_0x2632('0x2e'),colors(_0x231fc4))[_0x2632('0xd')]('d',valueline(_0x46d1af));svg['append']('g')[_0x2632('0xd')](_0x2632('0xe'),_0x2632('0x2f'))[_0x2632('0xd')]('transform',_0x2632('0x30')+height+')')[_0x2632('0x31')](xAxis);svg[_0x2632('0x32')](_0x2632('0x33'))['data'](_0x46d1af)[_0x2632('0x34')]()['append'](_0x2632('0x2a'))[_0x2632('0xd')]('r',3.5)[_0x2632('0x10')](_0x2632('0x2b'),function(_0x450f00){return colors(_0x450f00[_0x2632('0x12')]);})['attr']('cx',function(_0x2571c2){return x(_0x2571c2[_0x2632('0x13')]);})[_0x2632('0xd')]('cy',function(_0x2e3a07){return y(_0x2e3a07[_0x2632('0x1b')]);})['on'](_0x2632('0x35'),function(_0x24e7a8){div[_0x2632('0x36')]()[_0x2632('0x37')](0xc8)[_0x2632('0x10')](_0x2632('0x11'),0.9);div[_0x2632('0x9')](_0x2632('0x38'))[_0x2632('0x2c')](_0x2632('0x39')+_0x24e7a8[_0x2632('0x12')]);div[_0x2632('0x9')](_0x2632('0x3a'))[_0x2632('0x2c')](_0x2632('0x3b')+_0x24e7a8[_0x2632('0x13')][_0x2632('0x3c')]());div[_0x2632('0x9')]('p')[_0x2632('0x2c')](_0x2632('0x3d')+_0x24e7a8[_0x2632('0x1b')]);div[_0x2632('0x10')]('left',d3[_0x2632('0x3e')][_0x2632('0x3f')]+'px')[_0x2632('0x10')](_0x2632('0x4'),d3[_0x2632('0x3e')][_0x2632('0x40')]-0x1c+'px');})['on'](_0x2632('0x41'),function(_0x20822e){div[_0x2632('0x36')]()[_0x2632('0x37')](0x1f4)[_0x2632('0x10')]('opacity',0x0);});svg['append']('g')['attr'](_0x2632('0xe'),_0x2632('0x42'))[_0x2632('0x31')](yAxis);});});
+
+var colors = d3.scale.category20();
+
+// Set the dimensions of the canvas / graph
+var margin = {top: 30, right: 20, bottom: 30, left: 50},
+    width = 900 - margin.left - margin.right,
+    height = 360 - margin.top - margin.bottom;
+
+// Parse the date / time
+var parseDate = d3.time.format("%Y").parse;
+
+var div = d3.select("body")
+  .append("div")   
+  .attr("class", "tooltip")               
+  .style("opacity", 0);
+
+// Tooltip
+div.append("h3")
+    .attr("class", "categoria");
+div.append("h3")
+    .attr("class", "anio");
+div.append("p");
+
+// Set the ranges
+var x = d3.time.scale().range([0, width]);
+var y = d3.scale.linear().range([height, 0]);
+
+console.log(x.range());
+
+// Define the axes
+var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").ticks(15);
+
+var yAxis = d3.svg.axis().scale(y)
+    .orient("left").ticks(5);
+
+// Define the line
+var valueline = d3.svg.line()
+    .x(function(d) { return x(d.anio); })
+    .y(function(d) { return y(d.conteo); });
+    
+// Adds the svg canvas
+var svg = d3.select("body")
+    .append("svg")
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 900 400")
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data
+d3.csv(timelinecsv, function(error, data) {
+
+    const categories = [...new Set(data.map(item => item.categoria))];
+    const result = categories.filter(function(d){
+            return d != "";
+        }); 
+
+    data.forEach(function(d) {
+        d.anio = parseDate(d.anio);
+        d.conteo = +d.conteo;
+    });
+
+    // Scale the range of the data
+    x.domain(d3.extent(data, function(d) { return d.anio; }));
+    y.domain([0, d3.max(data, function(d) { return d.conteo; })]);
+
+    var legendRectSize = 10;                                  
+    var legendSpacing = 10; 
+
+    var xLen = 0;
+    var yLen = height + 40;
+
+    // text positions
+    var textPos = {};
+
+    // text width calculations
+    var dummy = d3.select("body")
+      .append("svg")
+      .append('g')
+      .selectAll('.dummyText')
+      .data(result)
+      .enter()
+      .append("text")
+      .attr("font-family", "Lora")
+      .text(function(d) { return d; })
+      .each(function(d,i) {
+        textPos[d] = {x: xLen, y: yLen};
+        var margin = legendRectSize + legendSpacing + 40;
+
+        xLen += this.getBBox().width + margin;
+        if (xLen > width - 30) {
+          yLen += 20;
+          xLen = 0;
+        }
+      })
+      .remove();
+
+    var legend = svg.selectAll('.legend')                     
+          .data(result)                                   
+          .enter()                                                
+          .append('g')                                            
+          .attr('class', 'legend')
+          .attr('transform', function(d, i) {
+            var height = legendRectSize + legendSpacing;
+
+            var vert = i * height;
+
+            return 'translate(' + textPos[d].x + ',' + textPos[d].y + ')';
+          })
+          .append('text')
+            .text(function(d) { return d; })
+            .attr('x', legendRectSize + legendSpacing)
+            .attr('y', (legendRectSize - legendSpacing) + legendRectSize/2);
+
+        svg.selectAll('.legend').append('circle')                                     
+            .attr('r', legendRectSize/2)                          
+            .attr('cx', 5)                         
+            .style('fill', function(d) { return colors(d); })                             
+          
+        // legend
+
+
+
+    result.forEach(function(categoria) {
+        var filteredData = data.filter(function(d){
+            return d.categoria == categoria;
+        });
+        
+        var fixedData = filteredData.filter(function(d){
+            return d.conteo != 0;
+        }); 
+        // console.log(fixedData);
+
+        // var fixedData = x.ticks(d3.time.year).map(function(yearBucket) {
+        //     return _.find(filteredData, { anio: yearBucket }) || {anio: yearBucket, conteo: 0};
+        // });
+
+        // // Add the valueline path.
+
+
+
+        svg.append("path")
+            .attr("class", "line")
+            .style("stroke", colors(categoria))
+            .style("stroke-width", 1)
+            .attr("d", valueline(fixedData));
+
+                // Add the X Axis
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        svg.selectAll("dot")
+            .data(fixedData)
+          .enter().append("circle")
+            .attr("r", 3.5)
+            .style("fill", function(d) { return colors(d.categoria); })
+            .attr("cx", function(d) { return x(d.anio); })
+            .attr("cy", function(d) { return y(d.conteo); })
+
+        .on("mouseover", function(d) {      
+            div.transition()        
+              .duration(200)      
+              .style("opacity", .9);   
+
+            div.select("h3.categoria")
+              .text("Categoria: " + d["categoria"]);
+            div.select("h3.anio")
+              .text("Año: " + d["anio"].getFullYear());
+            div.select("p")
+              .text("Obras: " + d["conteo"]);
+            div
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 28) + "px");
+          })
+
+        .on("mouseout", function(d) {       
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);   
+          }); 
+
+        // Add the Y Axis
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis);
+    });
+
+
+});
