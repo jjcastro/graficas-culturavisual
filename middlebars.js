@@ -27,7 +27,7 @@ nombres["Suriname"] = "Surinam";
 nombres["French Guiana"] = "Guyana Francesa";
 nombres["Guiana"] = "Guyana";
 
-var margin = {top: 40, right: 60, bottom: 107, left: 120},
+var margin = {top: 40, right: 30, bottom: 107, left: 120},
     width = 960 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
   
@@ -47,8 +47,10 @@ var yAxis = d3.svg.axis()
     .innerTickSize([0]);
     
 var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    // .attr("width", width + margin.left + margin.right)
+    // .attr("height", height + margin.top + margin.bottom)
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 " + (width + margin.left + margin.right)+ " " + (height + margin.top + margin.bottom))
   .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
