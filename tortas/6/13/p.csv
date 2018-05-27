@@ -1,8 +1,8 @@
-name,total
-Infierno,14,,
-"Gloria, Trono y cielo ",14,,
-Purgatorio,120,,
-Muerte,61,,Gráfica 13
-Juicio Final,40,,
-"Parusía, resurreción carne",6,,
-Juicio individual,6,,
+name,total,color
+Infierno,14,1,
+"Gloria, Trono y cielo ",14,1,
+Purgatorio,120,1,
+Muerte,61,1,
+Juicio Final,40,2,
+"Parusía, resurreción carne",6,2,
+Juicio individual,6,1,

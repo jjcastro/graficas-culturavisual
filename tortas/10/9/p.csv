@@ -1,7 +1,7 @@
-name,total
-Retrato de Monjas,79,,
-Monjas Coronadas Vivas,47,,
-Monjas Coronadas Muertas,64,,Gráfica 9
-sacerdotes y clérigos,259,,
-Obispos,164,,
-Papas,15,,
+name,total,color
+Retrato de Monjas,79,1,
+Monjas Coronadas Vivas,47,1,
+Monjas Coronadas Muertas,64,1
+Sacerdotes y clérigos,259,2,
+Obispos,164,2,
+Papas,15,2,
