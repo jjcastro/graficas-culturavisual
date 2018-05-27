@@ -3,7 +3,7 @@ var div = d3.select("body").append("div").attr("class", "toolTip");
 
 d3.csv(paisescsv, function(data) {
 
-  var colors = ["rgb(56, 119, 175)", "rgb(198, 57, 51)"];
+  var colors = ["rgb(56, 119, 175)", "rgb(198, 57, 51)", "rgb(81, 156, 62)"];
 
   var total = 0;
   data.forEach(function(element) {
