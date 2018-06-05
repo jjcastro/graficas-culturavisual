@@ -269,11 +269,11 @@ var svg2 = d3.select("div#maps")
           return nombres[d.properties.sovereignt];
         })
         .attr("text-anchor", "middle")
-        // .attr("font-family", "sans-serif")
-        .attr("font-size", "14px")
+        .attr("font-family", "Lora")
+        .attr("font-size", "8px")
         .attr("fill", "white")
         .attr("display", function(d) {
-          if (d.r + 20 > this.getComputedTextLength())
+          if (d.r + 18 > this.getComputedTextLength())
             return "block";
           else
             return "none";

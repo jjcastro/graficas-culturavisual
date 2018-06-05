@@ -7,6 +7,10 @@ d3.csv(paisescsv, function(data) {
     total += Number(element.total);
   });
 
+  data.sort(function(a, b) {
+    return b.total - a.total;
+  });
+
   console.log(total);
 
   for (var i = 0; i < data.length; i++) {
@@ -84,6 +88,32 @@ d3.csv(paisescsv, function(data) {
   d3.selectAll("path").on("mouseout", function(d){
       div.style("display", "none");
   });
+
+  var num = -220;
+
+  var legend = svg.selectAll('.legend')                     
+    .data(pie(data))                                   
+    .enter()                                                
+    .append('g')                                            
+    .attr('class', 'legend')
+    .attr('transform', function(d) {
+      var curr = num;
+      num += 20;
+      // return curr;
+      return 'translate(-460,' + curr + ')';
+    })
+    .append('text')
+      .text(function(d) { return d.data.name; })
+      .attr('x', 15)
+      .attr('y', 5);
+
+  svg.selectAll('.legend')
+    .append('circle')                                     
+    .attr('r', 5)                          
+    .attr('cx', 0)                         
+    .style('fill', function(d) {
+      return color(d.data.name);
+    });
       
       
   //d3.select("body").transition().style("background-color", "#d3d3d3");

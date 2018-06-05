@@ -2,9 +2,9 @@
 var colors = d3.scale.category20();
 
 // Set the dimensions of the canvas / graph
-var margin = {top: 30, right: 20, bottom: 30, left: 50},
+var margin = {top: 30, right: 50, bottom: 30, left: 50},
     width = 900 - margin.left - margin.right,
-    height = 360 - margin.top - margin.bottom;
+    height = 550 - margin.top - margin.bottom;
 
 // Parse the date / time
 var parseDate = d3.time.format("%Y").parse;
@@ -43,7 +43,7 @@ var valueline = d3.svg.line()
 var svg = d3.select("body")
     .append("svg")
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 900 400")
+    .attr("viewBox", "0 0 900 600")
     .append("g")
         .attr("transform", 
               "translate(" + margin.left + "," + margin.top + ")");

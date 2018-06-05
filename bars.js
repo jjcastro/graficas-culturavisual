@@ -141,6 +141,8 @@ d3.csv("bars.csv", function(data) {
           .style("opacity", 0);   
       }); 
 
+  var pctotal = 0;
+
   var text2 = svg3.selectAll("omg")
       .data(data)
       .enter()
@@ -148,6 +150,7 @@ d3.csv("bars.csv", function(data) {
 
   var textLabels2 = text2
     .text( function (d) {
+      pctotal += parseInt(d.obras);
       return d.obras;
     })
     .attr("text-anchor", "middle")
@@ -158,6 +161,24 @@ d3.csv("bars.csv", function(data) {
     .attr("y", function (d) {
       return x(d["supertema"] + d["tema"]) + (x.rangeBand()/2) + 5;
     });
+
+    var text3 = svg3.selectAll("omg")
+      .data(data)
+      .enter()
+      .append("text");
+
+    var textLabels3 = text3
+      .text( function (d) {
+        return ((d.obras / pctotal) * 100).toFixed(1) + "%";
+      })
+      .attr("text-anchor", "middle")
+      .attr("font-family", "Lora")
+      .attr("font-size", "12px")
+      .attr("fill", "black")
+      .attr("x", function (d) { return y(d["obras"]) + 20; } )
+      .attr("y", function (d) {
+        return x(d["supertema"] + d["tema"]) + (x.rangeBand()/2) + 5;
+      });
 
 
 

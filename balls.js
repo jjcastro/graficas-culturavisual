@@ -98,17 +98,17 @@ d3.csv(bolascsv, function(data) {
       return d.x;
     })
     .attr("y", function(d) { 
-      return d.y + 7;
+      return d.y + 3;
     })
     .text( function (d) {
       return d.pais;
     })
     .attr("text-anchor", "middle")
-    .attr("font-family", "sans-serif")
-    .attr("font-size", "14px")
+    .attr("font-family", "Lora")
+    .attr("font-size", "8px")
     .attr("fill", "white")
     .attr("display", function(d) {
-      if (d.r + 20 > this.getComputedTextLength())
+      if (d.r + 18 > this.getComputedTextLength())
         return "block";
       else
         return "none";
