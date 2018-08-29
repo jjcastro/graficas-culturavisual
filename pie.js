@@ -104,6 +104,7 @@ d3.csv(paisescsv, function(data) {
     })
     .append('text')
       .text(function(d) { return d.data.name; })
+      .attr('font-family', 'Lora')
       .attr('x', 15)
       .attr('y', 5);
 

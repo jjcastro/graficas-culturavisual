@@ -11,7 +11,11 @@ d3.csv(paisescsv, function(data) {
   });
 
   data.sort(function(a, b) {
-    return b.total - a.total;
+    var color = b.color - a.color;
+    if (color == 0) {
+      return b.total - a.total;
+    }
+    return b.color - a.color;
   });
 
   console.log(total);
@@ -107,12 +111,13 @@ d3.csv(paisescsv, function(data) {
       return 'translate(-460,' + curr + ')';
     })
     .append('text')
+      .attr('font-family', 'Lora')   
       .text(function(d) { return d.data.name; })
       .attr('x', 15)
       .attr('y', 5);
 
   svg.selectAll('.legend')
-    .append('circle')                                     
+    .append('circle')                                  
     .attr('r', 5)                          
     .attr('cx', 0)                         
     .style('fill', function(d) {
